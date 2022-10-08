@@ -1,18 +1,66 @@
 name: flutter_marvel_heroes
 description: Flutter app that uses the Marvel API.
-publish_to: 'none'
+publish_to: "none"
 version: 1.0.0+1
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: ">=2.18.0 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
   dio: ^4.0.6
   cupertino_icons: ^1.0.2
+  flutter_svg: ^1.1.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+
 flutter:
   uses-material-design: true
+  assets:
+    - lib/assets/images/
+    - lib/assets/icons/
+  fonts:
+    - family: Graphie
+      fonts:
+        - asset: lib/assets/fonts/graphie/Graphie-Thin.otf
+          weight: 100
+        - asset: lib/assets/fonts/graphie/Graphie-ThinItalic.otf
+          style: italic
+          weight: 100
+        - asset: lib/assets/fonts/graphie/Graphie-ExtraLight.otf
+          weight: 200
+        - asset: lib/assets/fonts/graphie/Graphie-ExtraLightItalic.otf
+          style: italic
+          weight: 200
+        - asset: lib/assets/fonts/graphie/Graphie-Light.otf
+          weight: 300
+        - asset: lib/assets/fonts/graphie/Graphie-LightItalic.otf
+          style: italic
+          weight: 300
+        - asset: lib/assets/fonts/graphie/Graphie-Book.otf
+          weight: 400
+        - asset: lib/assets/fonts/graphie/Graphie-BookItalic.otf
+          style: italic
+          weight: 400
+        - asset: lib/assets/fonts/graphie/Graphie-Regular.otf
+          weight: 500
+        - asset: lib/assets/fonts/graphie/Graphie-Italic.otf
+          style: italic
+          weight: 500
+        - asset: lib/assets/fonts/graphie/Graphie-Semibold.otf
+          weight: 600
+        - asset: lib/assets/fonts/graphie/Graphie-SemiboldItalic.otf
+          style: italic
+          weight: 600
+        - asset: lib/assets/fonts/graphie/Graphie-Bold.otf
+          weight: 700
+        - asset: lib/assets/fonts/graphie/Graphie-BoldItalic.otf
+          style: italic
+          weight: 700
+        - asset: lib/assets/fonts/graphie/Graphie-ExtraBold.otf
+          weight: 800
+        - asset: lib/assets/fonts/graphie/Graphie-ExtraBoldItalic.otf
+          style: italic
+          weight: 800
