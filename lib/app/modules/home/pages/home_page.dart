@@ -19,24 +19,8 @@ class _HomePageState extends State<HomePage> {
       const CardWidget(title: 'Homem Aranha', subtitle: 'Peter Parker', imageUrl: '${Assets.images}/spider_man.png'),
       const CardWidget(title: 'Pantera Negra', subtitle: "T'Challa", imageUrl: '${Assets.images}/black_panther.png'),
       const CardWidget(title: 'Homem de Ferro', subtitle: 'Tony Stark', imageUrl: '${Assets.images}/iron_man.png'),
-      ClipRRect(
-        borderRadius: BorderRadius.circular(16),
-        child: Container(
-          width: 140,
-          height: 230,
-          color: ThemeColors.primaryRed,
-          child: Center(
-            child: Text(
-              'Ver todos',
-              style: TTypography.cardTitle.merge(const TextStyle(
-                color: ThemeColors.primaryDark,
-              )),
-            ),
-          ),
-        ),
-      ),
     ];
-    
+
     return SafeArea(
       child: Scaffold(
         appBar: MainAppBar(),
