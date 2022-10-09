@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../utils/constants.dart';
-import '../assets/svg_asset.dart';
+import 'package:flutter_marvel_heroes/app/core/components/assets/svg_asset.dart';
 
-class HomeAppBar extends AppBar {
-  HomeAppBar({Key? key})
+import '../../utils/constants.dart';
+
+class MainAppBar extends AppBar {
+  MainAppBar({Key? key})
       : super(
           key: key,
           elevation: 0,
