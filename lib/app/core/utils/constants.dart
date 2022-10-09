@@ -77,11 +77,17 @@ abstract class ThemeColors {
     ],
   );
   static const LinearGradient gradientDark = LinearGradient(
-        begin: Alignment(0.0, 0.4),
-        end: Alignment.bottomCenter,
-        colors: [
-          Color.fromARGB(0, 0, 0, 0),
-          Color(0xFF000000),
-        ],
-      );
+    begin: Alignment(0.0, 0.4),
+    end: Alignment.bottomCenter,
+    colors: [
+      Color.fromARGB(0, 0, 0, 0),
+      Color(0xFF000000),
+    ],
+  );
+}
+
+abstract class Themes {
+  static final mainAppTheme = ThemeData(
+    fontFamily: Fonts.graphie,
+  );
 }
