@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class Film {
   int id;
   String name;
@@ -21,7 +19,7 @@ class Film {
       name: map['name'],
       releaseYear: map['releaseYear'],
       description: map['description'],
-      bannerUrl: map['bannerUrl'],
+      bannerUrl: map['banner_url'],
     );
   }
 }
