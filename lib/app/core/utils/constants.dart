@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 abstract class Assets {
   static const String images = "lib/assets/images";
@@ -72,8 +73,8 @@ abstract class ThemeColors {
     begin: Alignment(0.0, 0.3),
     end: Alignment(0.0, 0.75),
     colors: [
+      Color.fromARGB(0, 0, 0, 0),
       Color(0xFF000000),
-      Color(0xFF434343),
     ],
   );
   static const LinearGradient gradientDark = LinearGradient(
@@ -89,5 +90,18 @@ abstract class ThemeColors {
 abstract class Themes {
   static final mainAppTheme = ThemeData(
     fontFamily: Fonts.graphie,
+  );
+}
+
+abstract class SystemUICustomOverlayStyle {
+  static const light = SystemUiOverlayStyle(
+    statusBarColor: ThemeColors.primarySilver,
+    statusBarIconBrightness: Brightness.dark,
+    statusBarBrightness: Brightness.light,
+  );
+
+  static const transparent = SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
   );
 }
