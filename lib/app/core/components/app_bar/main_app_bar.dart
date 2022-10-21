@@ -15,6 +15,7 @@ class MainAppBar extends AppBar {
             color: ThemeColors.primaryBlack,
             fontSize: 20,
           ),
+          automaticallyImplyLeading: false,
           title: const Center(
             child: SvgAsset(
               path: '${Assets.icons}/marvel_logo.svg',

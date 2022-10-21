@@ -6,6 +6,7 @@ class Character {
   int id;
   String realName;
   String characterName;
+  String category;
   String imageUrl;
   int age;
   int weight;
@@ -13,12 +14,13 @@ class Character {
   String homePlanet;
   String description;
   List<Ability> abilities;
-  List<int> filmIds;
+  List<int> films;
 
   Character({
     required this.id,
     required this.realName,
     required this.characterName,
+    required this.category,
     required this.imageUrl,
     required this.age,
     required this.weight,
@@ -26,22 +28,23 @@ class Character {
     required this.homePlanet,
     required this.description,
     required this.abilities,
-    required this.filmIds,
+    required this.films,
   });
 
   factory Character.fromMap(Map<String, dynamic> map) {
     return Character(
       id: map['id'],
-      realName: map['realName'],
-      characterName: map['characterName'],
-      imageUrl: map['imageUrl'],
+      realName: map['real_name'],
+      characterName: map['character_name'],
+      category: map['category'],
+      imageUrl: map['image_url'],
       age: map['age'],
       weight: map['weight'],
       height: map['height'],
-      homePlanet: map['homePlanet'],
+      homePlanet: map['home_planet'],
       description: map['description'],
       abilities: List<Ability>.from(map['abilities']?.map((x) => Ability.fromMap(x))),
-      filmIds: List<int>.from(map['filmIds']),
+      films: List<int>.from(map['films']?.map((x) => x)),
     );
   }
 

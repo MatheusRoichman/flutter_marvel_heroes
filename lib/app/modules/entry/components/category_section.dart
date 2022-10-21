@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_marvel_heroes/app/core/components/card/card_list.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/components/typography/typography.dart';
 import '../../../core/utils/constants.dart';
 
-class CharactersSection extends StatelessWidget {
+class CategorySection extends StatelessWidget {
+  final String category;
   final String title;
   final List<Widget> children;
-  const CharactersSection({required this.title, required this.children, super.key});
+  const CategorySection({required this.category, required this.title, required this.children, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +29,16 @@ class CharactersSection extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 24),
-                child: Text(
-                  'Ver tudo',
-                  style: TTypography.description.merge(const TextStyle(
-                    color: ThemeColors.primaryGrey,
-                  )),
+                child: GestureDetector(
+                  onTap: () {
+                    Modular.to.pushNamed('/category/$category');
+                  },
+                  child: Text(
+                    'Ver tudo',
+                    style: TTypography.description.merge(const TextStyle(
+                      color: ThemeColors.primaryGrey,
+                    )),
+                  ),
                 ),
               ),
             ],
@@ -40,13 +48,7 @@ class CharactersSection extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           height: 230,
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: children.length,
-              itemBuilder: (context, item) => Container(
-                    padding: const EdgeInsets.only(right: 16),
-                    child: children[item],
-                  )),
+          child: CardList(children: children),
         ),
         const SizedBox(height: 40)
       ],
