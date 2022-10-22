@@ -9,7 +9,7 @@ class Character {
   String category;
   String imageUrl;
   int age;
-  int weight;
+  double weight;
   double height;
   String homePlanet;
   String description;
@@ -31,20 +31,19 @@ class Character {
     required this.films,
   });
 
-  factory Character.fromMap(Map<String, dynamic> map) {
-    return Character(
+  factory Character.fromMap(Map<String, dynamic> map) {return Character(
       id: map['id'],
       realName: map['real_name'],
       characterName: map['character_name'],
       category: map['category'],
       imageUrl: map['image_url'],
       age: map['age'],
-      weight: map['weight'],
+      weight: map['weight'].toDouble(),
       height: map['height'],
       homePlanet: map['home_planet'],
       description: map['description'],
-      abilities: List<Ability>.from(map['abilities']?.map((x) => Ability.fromMap(x))),
-      films: List<int>.from(map['films']?.map((x) => x)),
+      abilities: (map['abilities'] as List<dynamic>).map((ability) => Ability.fromMap(ability)).toList(),
+      films: (map['films'] as List<dynamic>).map((filmId) => filmId as int).toList(),
     );
   }
 
