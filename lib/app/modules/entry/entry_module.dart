@@ -2,10 +2,13 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'pages/character_page.dart';
 import 'pages/home_page.dart';
+import 'stores/characters_store.dart';
 
 class EntryModule extends Module {
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+    Bind.lazySingleton((i) => CharactersStore(i.get())),
+  ];
 
   @override
   List<ModularRoute> get routes => [
@@ -14,7 +17,7 @@ class EntryModule extends Module {
         //     child: (_, args) => CategoryPage(
         //           category: args.params['category_name']!,
         //         )),
-        ChildRoute('/characters/:character_id',
+        ChildRoute('/characters/:character_id/',
             child: (_, args) => CharacterPage(
                   characterId: int.parse(args.params['character_id']),
                 ),
