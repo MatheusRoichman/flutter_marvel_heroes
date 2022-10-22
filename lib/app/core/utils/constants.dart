@@ -105,3 +105,7 @@ abstract class SystemUICustomOverlayStyle {
     statusBarIconBrightness: Brightness.dark,
   );
 }
+
+abstract class EnvVars {
+  static const baseURL = String.fromEnvironment('BASE_URL');
+}
