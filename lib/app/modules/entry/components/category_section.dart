@@ -42,7 +42,7 @@ class _CategorySectionState extends State<CategorySection> {
                 subtitle: character.realName,
                 imageUrl: '${Assets.images}/${character.imageUrl}',
                 onTap: () {
-                  Modular.to.pushNamed('/characters/${character.id}/');
+                  Modular.to.pushNamed('/character/${character.id}/');
                 },
               );
             }).toList()) : const Center(child: Text('Nenhum personagem encontrado'));
