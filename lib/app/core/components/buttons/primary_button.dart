@@ -45,9 +45,6 @@ class _PrimaryButtonState extends State<PrimaryButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapDown: (details) => setState(() => isPressed = true),
-      onTapUp: (details) => setState(() => isPressed = false),
-      onTapCancel: () => setState(() => isPressed = false),
       onTap: !widget.isDisabled ? widget.onTap : null,
       child: Container(
         height: height,
