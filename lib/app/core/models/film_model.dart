@@ -3,23 +3,23 @@ class Film {
   String name;
   int releaseYear;
   String description;
-  String bannerUrl;
+  String imageUrl;
 
   Film({
     required this.id,
     required this.name,
     required this.releaseYear,
     required this.description,
-    required this.bannerUrl,
+    required this.imageUrl,
   });
 
   factory Film.fromMap(Map<String, dynamic> map) {
     return Film(
       id: map['id'],
       name: map['name'],
-      releaseYear: map['releaseYear'],
+      releaseYear: map['release_year'],
       description: map['description'],
-      bannerUrl: map['banner_url'],
+      imageUrl: map['image_url'],
     );
   }
 }
