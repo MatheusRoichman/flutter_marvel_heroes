@@ -84,21 +84,6 @@ class _HomePageState extends State<HomePage> {
                     );
                   }
 
-                  if (store.characterState == CharacterState.error) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 24.0),
-                      child: Center(
-                        child: Column(
-                          children: [
-                            const Text('Erro ao carregar personagens'),
-                            const SizedBox(height: 10),
-                            PrimaryButton(text: 'Tentar novamente', onTap: _retryGetCharacters),
-                          ],
-                        ),
-                      ),
-                    );
-                  }
-
                   return Column(
                     children:
                         store.categories.map((c) => CategorySection(category: c.name, title: c.displayName)).toList(),
