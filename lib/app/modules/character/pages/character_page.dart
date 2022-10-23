@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_marvel_heroes/app/core/components/assets/image_asset.dart';
 import 'package:flutter_marvel_heroes/app/core/components/assets/svg_asset.dart';
-import 'package:flutter_marvel_heroes/app/modules/entry/components/characters/caracteristic_card.dart';
-import 'package:flutter_marvel_heroes/app/modules/entry/components/characters/character_abilities_section.dart';
+import 'package:flutter_marvel_heroes/app/modules/character/components/caracteristic_card.dart';
+import 'package:flutter_marvel_heroes/app/modules/character/components/character_abilities_section.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/components/app_bar/dark_translucid_app_bar.dart';
 import '../../../core/components/typography/typography.dart';
 import '../../../core/utils/constants.dart';
-import '../../entry/components/characters/caracteristics_list.dart';
-import '../../entry/components/characters/character_films_section.dart';
-import '../../entry/components/characters/character_profile_header.dart';
+import '../components/caracteristics_list.dart';
+import '../components/character_films_section.dart';
+import '../components/character_profile_header.dart';
 import '../stores/character_details_store.dart';
 
 class CharacterPage extends StatefulWidget {

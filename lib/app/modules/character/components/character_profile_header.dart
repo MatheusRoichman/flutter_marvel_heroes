@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/components/typography/typography.dart';
-import '../../../../core/utils/constants.dart';
+import '../../../core/components/typography/typography.dart';
+import '../../../core/utils/constants.dart';
 
 class CharacterProfileHeader extends StatelessWidget {
   final String realName;
@@ -14,12 +14,12 @@ class CharacterProfileHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Peter Parker',
+        Text(realName,
             style: TTypography.profileSubtitle.merge(
               const TextStyle(color: ThemeColors.primaryWhite),
             )),
         const SizedBox(height: 8),
-        Text('Homem Aranha',
+        Text(characterName,
             style: TTypography.profileTitle.merge(
               const TextStyle(color: ThemeColors.primaryWhite),
             )),
