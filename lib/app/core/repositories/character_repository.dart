@@ -1,13 +1,12 @@
 import '../models/category_model.dart';
 import '../models/character_model.dart';
 import '../models/response_exception.dart';
-import '../services/rest_client/models/rest_client_exception.dart';
-import '../services/rest_client/rest_client_service.dart';
+import '../services/rest_client/rest_client.dart';
 import '../utils/utils.dart';
 
 abstract class CharacterRepository {
   Future<List<Character>> getCharacters({required String category});
-  Future<Character> getCharacter(int id);
+  Future<Character> getCharacterById(int id);
   Future<List<Category>> getCategories();
 }
 
@@ -42,7 +41,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
   }
 
   @override
-  Future<Character> getCharacter(int id) async {
+  Future<Character> getCharacterById(int id) async {
     try {
       final response = await _client.get('/characters/$id');
 
