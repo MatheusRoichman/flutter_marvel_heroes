@@ -9,21 +9,22 @@ part of 'characters_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$CharactersStore on _CharactersStoreBase, Store {
-  late final _$_characterStateAtom =
-      Atom(name: '_CharactersStoreBase._characterState', context: context);
+  late final _$_charactersStatesAtom =
+      Atom(name: '_CharactersStoreBase._charactersStates', context: context);
 
-  CharacterState get characterState {
-    _$_characterStateAtom.reportRead();
-    return super._characterState;
+  ObservableMap<String, CharacterState> get charactersStates {
+    _$_charactersStatesAtom.reportRead();
+    return super._charactersStates;
   }
 
   @override
-  CharacterState get _characterState => characterState;
+  ObservableMap<String, CharacterState> get _charactersStates =>
+      charactersStates;
 
   @override
-  set _characterState(CharacterState value) {
-    _$_characterStateAtom.reportWrite(value, super._characterState, () {
-      super._characterState = value;
+  set _charactersStates(ObservableMap<String, CharacterState> value) {
+    _$_charactersStatesAtom.reportWrite(value, super._charactersStates, () {
+      super._charactersStates = value;
     });
   }
 
@@ -48,16 +49,16 @@ mixin _$CharactersStore on _CharactersStoreBase, Store {
   late final _$_charactersAtom =
       Atom(name: '_CharactersStoreBase._characters', context: context);
 
-  Map<String, List<Character>> get characters {
+  ObservableMap<String, List<Character>> get characters {
     _$_charactersAtom.reportRead();
     return super._characters;
   }
 
   @override
-  Map<String, List<Character>> get _characters => characters;
+  ObservableMap<String, List<Character>> get _characters => characters;
 
   @override
-  set _characters(Map<String, List<Character>> value) {
+  set _characters(ObservableMap<String, List<Character>> value) {
     _$_charactersAtom.reportWrite(value, super._characters, () {
       super._characters = value;
     });
@@ -66,16 +67,16 @@ mixin _$CharactersStore on _CharactersStoreBase, Store {
   late final _$_categoriesAtom =
       Atom(name: '_CharactersStoreBase._categories', context: context);
 
-  List<Category> get categories {
+  ObservableList<Category> get categories {
     _$_categoriesAtom.reportRead();
     return super._categories;
   }
 
   @override
-  List<Category> get _categories => categories;
+  ObservableList<Category> get _categories => categories;
 
   @override
-  set _categories(List<Category> value) {
+  set _categories(ObservableList<Category> value) {
     _$_categoriesAtom.reportWrite(value, super._categories, () {
       super._categories = value;
     });

@@ -31,33 +31,47 @@ abstract class _CharactersStoreBase with Store {
   _CharactersStoreBase(this._repository);
 
   @readonly
-  CharacterState _characterState = CharacterState.initial;
+  ObservableMap<String, CharacterState> _charactersStates = ObservableMap.of({});
 
   @readonly
   CategoryState _categoryState = CategoryState.initial;
 
   @readonly
-  Map<String, List<Character>> _characters = {
-    'all': [],
-  };
+  ObservableMap<String, List<Character>> _characters = ObservableMap.of({
+    'others': [],
+  });
 
   @readonly
-  List<Category> _categories = [
-    Category(name: 'all', displayName: 'Outros'),
-  ];
+  ObservableList<Category> _categories = ObservableList.of([]);
 
   @action
   Future<void> getCharacters({required String category}) async {
     try {
-      _characterState = CharacterState.loading;
+      _charactersStates.update(
+        category,
+        (value) => CharacterState.loading,
+        ifAbsent: () => CharacterState.loading,
+      );
 
       final response = await _repository.getCharacters(category: category);
 
-      _characters[category] = response;
+      _characters.update(
+        category,
+        (value) => response,
+        ifAbsent: () => response,
+      );
 
-      _characterState = CharacterState.done;
+      _charactersStates.update(
+        category,
+        (value) => CharacterState.done,
+        ifAbsent: () => CharacterState.done,
+      );
     } on ResponseException catch (_) {
-      _characterState = CharacterState.error;
+      _charactersStates.update(
+        category,
+        (value) => CharacterState.error,
+        ifAbsent: () => CharacterState.error,
+      );
 
       return;
     }
@@ -70,9 +84,23 @@ abstract class _CharactersStoreBase with Store {
 
       final response = await _repository.getCategories();
 
-      _characters.addEntries(response.map((c) => MapEntry(c.name, [])));
+      response.map((c) {
+        _characters.update(
+          c.name,
+          (value) => _characters[c.name] ?? [],
+          ifAbsent: () => [],
+        );
 
-      _categories = [...response, ..._categories].toSet().toList();
+        _charactersStates.update(
+          c.name,
+          (value) => CharacterState.initial,
+          ifAbsent: () => CharacterState.initial,
+        );
+      });
+
+      _categories.clear();
+
+      _categories.addAll(response);
 
       _categoryState = CategoryState.done;
     } on ResponseException catch (_) {
