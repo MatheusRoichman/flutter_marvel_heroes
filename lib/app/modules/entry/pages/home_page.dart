@@ -9,7 +9,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/components/scaffold/main_scaffold.dart';
-import '../../../core/models/category_model.dart';
 import '../stores/characters_store.dart';
 
 class HomePage extends StatefulWidget {
@@ -33,12 +32,6 @@ class _HomePageState extends State<HomePage> {
 
   void _init() async {
     await store.getCategories();
-  }
-
-  void _retryGetCharacters() async {
-    for (Category category in store.categories) {
-      await store.getCharacters(category: category.name);
-    }
   }
 
   @override

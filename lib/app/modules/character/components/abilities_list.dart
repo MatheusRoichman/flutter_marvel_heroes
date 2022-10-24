@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/components/typography/typography.dart';
-import '../../../../core/models/ability_model.dart';
-import '../../../../core/utils/constants.dart';
+import '../../../core/components/typography/typography.dart';
+import '../../../core/models/ability_model.dart';
+import '../../../core/utils/constants.dart';
 
 class AbilitiesList extends StatelessWidget {
   final List<Ability> abilities;
-  final int maxAbilityLevel;
-  const AbilitiesList({super.key, required this.abilities, required this.maxAbilityLevel});
+  const AbilitiesList({super.key, required this.abilities});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class AbilitiesList extends StatelessWidget {
 
         List<Widget> bars = [];
 
-        for (int barIndex = 1; barIndex <= maxAbilityLevel; barIndex++) {
+        for (int barIndex = 1; barIndex <= ability.maxLevel; barIndex++) {
           Color barColor = ThemeColors.primaryWhite;
 
           if (barIndex > ability.level) {
@@ -32,7 +31,7 @@ class AbilitiesList extends StatelessWidget {
             height: barIndex == ability.level ? 12 : 8,
           ));
 
-          if (barIndex != maxAbilityLevel) {
+          if (barIndex != ability.maxLevel) {
             bars.add(const SizedBox(width: 4));
           }
         }

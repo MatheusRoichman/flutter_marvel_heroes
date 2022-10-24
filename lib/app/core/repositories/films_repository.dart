@@ -1,73 +1,72 @@
-import '../models/category_model.dart';
-import '../models/character_model.dart';
+import '../models/film_model.dart';
 import '../models/response_exception.dart';
 import '../services/rest_client/rest_client.dart';
 import '../utils/utils.dart';
 
-abstract class CharacterRepository {
-  Future<List<Character>> getCharacters({required String category});
-  Future<Character> getCharacterById(int id);
-  Future<List<Category>> getCategories();
+abstract class FilmsRepository {
+  Future<List<Film>> getFilms();
+  Future<Film> getFilmById(int id);
+  Future<List<Film>> getFilmsByIds(List<int> ids);
 }
 
-class CharacterRepositoryImpl implements CharacterRepository {
+class FilmsRepositoryImpl implements FilmsRepository {
   final RestClientService _client;
 
-  CharacterRepositoryImpl(this._client);
+  FilmsRepositoryImpl(this._client);
 
   @override
-  Future<List<Character>> getCharacters({required String category}) async {
+  Future<List<Film>> getFilms() async {
+    try {
+      final response = await _client.get('/films');
+
+      if (response.statusCode == 200) {
+        return response.data.map<Film>((c) => Film.fromMap(c)).toList();
+      }
+
+      throw ResponseException(
+        data: response.data,
+        statusCode: response.statusCode,
+      );
+    } on RestClientException catch (e) {
+      throw ResponseException(
+        data: e.error,
+        statusCode: e.statusCode,
+      );
+    }
+  }
+
+  @override
+  Future<Film> getFilmById(int id) async {
+    try {
+      final response = await _client.get('/films/$id');
+
+      if (response.statusCode == 200) {
+        return Film.fromMap(response.data);
+      }
+
+      throw ResponseException(
+        data: response.data,
+        statusCode: response.statusCode,
+      );
+    } on RestClientException catch (e) {
+      throw ResponseException(
+        data: e.error,
+        statusCode: e.statusCode,
+      );
+    }
+  }
+
+  @override
+  Future<List<Film>> getFilmsByIds(List<int> ids) async {
     try {
       String queryParams = buildQueryParams({
-        'category': category,
+        'id': ids,
       });
 
-      final response = await _client.get('/characters?$queryParams');
+      final response = await _client.get('/films?$queryParams');
 
       if (response.statusCode == 200) {
-        return response.data.map<Character>((c) => Character.fromMap(c)).toList();
-      }
-
-      throw ResponseException(
-        data: response.data,
-        statusCode: response.statusCode,
-      );
-    } on RestClientException catch (e) {
-      throw ResponseException(
-        data: e.error,
-        statusCode: e.statusCode,
-      );
-    }
-  }
-
-  @override
-  Future<Character> getCharacterById(int id) async {
-    try {
-      final response = await _client.get('/characters/$id');
-
-      if (response.statusCode == 200) {
-        return Character.fromMap(response.data);
-      }
-
-      throw ResponseException(
-        data: response.data,
-        statusCode: response.statusCode,
-      );
-    } on RestClientException catch (e) {
-      throw ResponseException(
-        data: e.error,
-        statusCode: e.statusCode,
-      );
-    }
-  }
-
-  @override
-  Future<List<Category>> getCategories() async {
-    try {
-      final response = await _client.get('/categories');
-
-      if (response.statusCode == 200) {
-        return response.data.map<Category>((c) => Category.fromMap(c)).toList();
+        return response.data.map<Film>((c) => Film.fromMap(c)).toList();
       }
 
       throw ResponseException(
