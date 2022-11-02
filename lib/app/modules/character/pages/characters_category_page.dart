@@ -9,8 +9,8 @@ import '../../../core/components/buttons/primary_button.dart';
 import '../../../core/components/card/card_widget.dart';
 import '../../../core/components/typography/typography.dart';
 import '../../../core/models/character_model.dart';
-import '../../../core/utils/constants.dart';
 import '../../../core/stores/characters_store.dart';
+import '../../../core/utils/constants.dart';
 
 class CharactersCategoryPage extends StatefulWidget {
   final Category category;
@@ -68,30 +68,41 @@ class _CharactersCategoryPageState extends State<CharactersCategoryPage> {
                       style: TTypography.homeTitle,
                     ),
                     const SizedBox(height: 20),
-                    GridView.builder(
-                      shrinkWrap: true,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 16,
-                        mainAxisSpacing: 16,
-                        mainAxisExtent: 230,
-                      ),
-                      itemCount: store.characters[widget.category.name]?.length,
-                      itemBuilder: (_, index) {
-                        Character character = store.characters[widget.category.name]![index];
+                    if (store.characters[widget.category.name]!.isEmpty)
+                      Center(
+                        child: Column(
+                          children: [
+                            const Text('Nenhum personagem encontrado'),
+                            const SizedBox(height: 10),
+                            PrimaryButton(text: 'Tentar novamente', onTap: _init),
+                          ],
+                        ),
+                      )
+                    else
+                      GridView.builder(
+                        shrinkWrap: true,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                          mainAxisExtent: 230,
+                        ),
+                        itemCount: store.characters[widget.category.name]?.length,
+                        itemBuilder: (_, index) {
+                          Character character = store.characters[widget.category.name]![index];
 
-                        return CardWidget(
-                          title: character.characterName,
-                          subtitle: character.realName,
-                          imageUrl: '${Assets.images}/${character.imageUrl}',
-                          onTap: () {
-                            Modular.to.pushNamed('/characters/${character.id}/');
-                          },
-                          width: 170,
-                          height: 230,
-                        );
-                      },
-                    ),
+                          return CardWidget(
+                            title: character.characterName,
+                            subtitle: character.realName,
+                            imageUrl: '${Assets.images}/${character.imageUrl}',
+                            onTap: () {
+                              Modular.to.pushNamed('/characters/${character.id}/');
+                            },
+                            width: 170,
+                            height: 230,
+                          );
+                        },
+                      ),
                   ],
                 ),
               );
