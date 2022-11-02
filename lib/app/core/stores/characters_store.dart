@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:mobx/mobx.dart';
 
-import '../../../core/models/category_model.dart';
-import '../../../core/models/character_model.dart';
-import '../../../core/models/response_exception.dart';
-import '../../../core/repositories/character_repository.dart';
+import '../models/category_model.dart';
+import '../models/character_model.dart';
+import '../models/response_exception.dart';
+import '../repositories/character_repository.dart';
 
 part 'characters_store.g.dart';
 
@@ -108,5 +108,15 @@ abstract class _CharactersStoreBase with Store {
 
       return;
     }
+  }
+
+  void reset() {
+    _charactersStates.clear();
+
+    _characters.clear();
+
+    _categories.clear();
+
+    _categoryState = CategoryState.initial;
   }
 }
