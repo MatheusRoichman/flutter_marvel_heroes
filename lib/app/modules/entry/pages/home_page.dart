@@ -9,7 +9,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/components/scaffold/main_scaffold.dart';
-import '../stores/characters_store.dart';
+import '../../../core/stores/characters_store.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
 
                   return Column(
                     children:
-                        store.categories.map((c) => CategorySection(category: c.name, title: c.displayName)).toList(),
+                        store.categories.map((c) => CategorySection(category: c)).toList(),
                   );
                 })
               ],
@@ -88,5 +88,11 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    store.reset();
+    super.dispose();
   }
 }
