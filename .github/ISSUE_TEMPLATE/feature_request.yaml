@@ -12,24 +12,24 @@ body:
   - type: input
     id: is-related-to-problem
     attributes:
-      - label: Is your feature request related to a problem?
-      - description: Write a clear and concise description of what the problem is. Ex. "I'm always frustrated when [...]"
+      label: Is your feature request related to a problem?
+      description: Write a clear and concise description of what the problem is. Ex. "I'm always frustrated when [...]"
     validations:
-      - required: true
+      required: true
   - type: input
     id: solution-description
     attributes:
-      - label: Describe the solution you'd like
-      - description: A clear and concise description of what you want to happen.
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
     validations:
-      - required: true
+      required: true
   - type: input
     id: alternatives
     attributes:
-      - label: Describe alternatives you've considered
-      - description: A clear and concise description of any alternative solutions or features you've considered.
+      label: Describe alternatives you've considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
   - type: input
     id: additional-context
     attributes:
-      - label: Additional context
-      - description: Add any other context or screenshots about the feature request here.
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.
