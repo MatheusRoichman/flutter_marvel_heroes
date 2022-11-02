@@ -1,16 +1,9 @@
-# flutter_marvel_heroes
+# Flutter - Marvel Heroes
 
-A new Flutter project.
+This is the front-end of the Marvel Heroes project. Check the project [here.](https://github.com/users/MatheusRoichman/projects/2)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Main tools
+This app is built with Flutter, which is a framework built on top of Dart to create user interfaces. The main libraries used are:
+- [Flutter Modular](https://modular.flutterando.com.br/);
+- [Flutter MobX](https://mobx.netlify.app/);
+- [DIO](https://pub.dev/documentation/dio/latest).
