@@ -4,6 +4,10 @@ Please include a summary of the change and which issue is fixed. Please also inc
 
 Fixes # (issue)
 
+## Main changes
+
+- List the main changes you've made on this PR.
+
 ## Type of change
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
