@@ -1,5 +1,5 @@
 name: flutter_marvel_heroes
-description: Flutter app that uses the Marvel API.
+description: Flutter app that uses a Marvel API mock. This is the frontend of the Marvel Heroes project.
 publish_to: "none"
 version: 1.0.0+1
 environment:
