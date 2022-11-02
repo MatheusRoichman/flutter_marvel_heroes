@@ -6,7 +6,7 @@ import '../../../core/models/response_exception.dart';
 import '../../../core/repositories/character_repository.dart';
 import '../../../core/repositories/films_repository.dart';
 
-part '../../entry/stores/character_details_store.g.dart';
+part 'character_details_store.g.dart';
 
 class CharacterDetailsStore = _CharacterDetailsStore with _$CharacterDetailsStore;
 
