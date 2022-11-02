@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../core/components/typography/typography.dart';
+import '../../../core/models/category_model.dart';
 import '../../../core/utils/constants.dart';
 
 class CategorySectionHeader extends StatelessWidget {
-  final String title;
-  final String category;
+  final Category category;
 
-  const CategorySectionHeader({required this.title, required this.category, super.key});
+  const CategorySectionHeader({required this.category, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class CategorySectionHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            title,
+            category.displayName,
             style: TTypography.sectionTitle.merge(const TextStyle(
               color: ThemeColors.primaryRed,
             )),
@@ -27,7 +27,9 @@ class CategorySectionHeader extends StatelessWidget {
             padding: const EdgeInsets.only(right: 24),
             child: GestureDetector(
               onTap: () {
-                Modular.to.pushNamed('/category/$category/');
+                Modular.to.pushNamed('/characters/category/', arguments: {
+                  'category': category,
+                });
               },
               child: Text(
                 'Ver tudo',
