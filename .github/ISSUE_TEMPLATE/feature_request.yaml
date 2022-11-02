@@ -10,25 +10,33 @@ body:
       value: |
         Thanks for taking the time to suggest a new feature!
   - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
     id: is-related-to-problem
     attributes:
       label: Is your feature request related to a problem?
       description: Write a clear and concise description of what the problem is. Ex. "I'm always frustrated when [...]"
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: solution-description
     attributes:
       label: Describe the solution you'd like
       description: A clear and concise description of what you want to happen.
     validations:
       required: true
-  - type: input
+  - type: textarea
     id: alternatives
     attributes:
       label: Describe alternatives you've considered
       description: A clear and concise description of any alternative solutions or features you've considered.
-  - type: input
+  - type: textarea
     id: additional-context
     attributes:
       label: Additional context
