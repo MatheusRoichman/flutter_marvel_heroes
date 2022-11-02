@@ -10,8 +10,19 @@ class CardWidget extends StatelessWidget {
   final String? subtitle;
   final VoidCallback? onTap;
   final LinearGradient? gradient;
+  final double? width;
+  final double? height;
 
-  const CardWidget({this.title, required this.imageUrl, this.subtitle, this.onTap, this.gradient, super.key});
+  const CardWidget({
+    this.title,
+    required this.imageUrl,
+    this.subtitle,
+    this.onTap,
+    this.gradient,
+    this.width,
+    this.height,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,19 +35,20 @@ class CardWidget extends StatelessWidget {
             ImageAsset(
               path: imageUrl,
               fit: BoxFit.cover,
-              width: 140,
-              height: 230,
+              width: width,
+              height: height,
             ),
             Positioned(
+              width: width,
+              height: height,
               bottom: 0,
               child: Container(
-                height: 230,
-                width: 140,
+                height: height,
                 decoration: BoxDecoration(gradient: gradient),
               ),
             ),
             Positioned(
-              width: 125,
+              width: width != null ? width! - 15 : null,
               bottom: 0,
               child: Padding(
                 padding: const EdgeInsets.only(left: 12, bottom: 12),
