@@ -30,14 +30,13 @@ body:
     id: platforms
     attributes:
       label: What platforms are you seeing the problem on?
-      multiple: true
       options:
-        - Android
-        - iOS
-        - Windows
-        - MacOS
-        - Linux
-        - Web
+        - label: Android
+        - label: iOS
+        - label: Windows
+        - label: MacOS
+        - label: Linux
+        - label: Web
   - type: textarea
     id: logs
     attributes:
