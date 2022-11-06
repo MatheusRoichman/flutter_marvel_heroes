@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../core/repositories/character_repository.dart';
 import '../core/services/rest_client/rest_client.dart';
 import '../core/utils/constants.dart';
 import 'entry/entry_module.dart';
