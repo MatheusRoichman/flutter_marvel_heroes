@@ -11,7 +11,6 @@ class AppModule extends Module {
   List<Bind> get binds => [
     Bind.factory<Dio>((i) => Dio()),
     Bind.factory<RestClientService>((i) => DioRestClient(EnvVars.baseURL, i.get())),
-    Bind.lazySingleton((i) => CharacterRepositoryImpl(i.get())),
   ];
 
   @override
