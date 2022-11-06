@@ -47,6 +47,8 @@ abstract class _CharactersStoreBase with Store {
   @action
   Future<void> getCharacters({required String category}) async {
     try {
+      _charactersStates[category] = CharacterState.loading;
+      
       _charactersStates.update(
         category,
         (value) => CharacterState.loading,
