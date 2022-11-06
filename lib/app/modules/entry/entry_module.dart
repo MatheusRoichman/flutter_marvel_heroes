@@ -1,3 +1,5 @@
+import 'package:flutter_marvel_heroes/app/core/repositories/films_repository.dart';
+import 'package:flutter_marvel_heroes/app/core/stores/films_store.dart';
 import 'package:flutter_marvel_heroes/app/modules/character/characters_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -10,6 +12,8 @@ class EntryModule extends Module {
   List<Bind> get binds => [
         Bind.lazySingleton((i) => CharacterRepositoryImpl(i.get())),
         Bind.lazySingleton((i) => CharactersStore(i.get())),
+        Bind.lazySingleton((i) => FilmsRepositoryImpl(i.get())),
+        Bind.lazySingleton((i) => FilmsStore(i.get())),
       ];
 
   @override
